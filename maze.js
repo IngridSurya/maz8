@@ -1,5 +1,9 @@
 function fun() {
-    alert('over!!');
+    let modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+    let audio = document.getElementById('audio');
+    audio.play();
+
     level = 0;
     gameStartClick();
 }
@@ -269,8 +273,15 @@ function prepareGame() {
 
 }
 
-let level = 0;
 //1 - 100
+let level = 0;
+
+let closeBtn = document.getElementsByClassName('close')[0];
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+    let audio = document.getElementById('audio');
+    audio.load();
+}
 
 prepareGame();
 let isGameStart = false;
