@@ -1,4 +1,4 @@
-function fun() {
+function lose() {
     let modal = document.getElementById('modal');
     modal.style.display = 'flex';
     let audio = document.getElementById('audio');
@@ -175,13 +175,13 @@ function gameStartClick() {
         if (isGameStart) {
             for (let wall in walls) {
                 if (typeof walls[wall] === 'object') {
-                    walls[wall].addEventListener('mouseover', fun);
+                    walls[wall].addEventListener('mouseover', lose);
                 }
             }
         } else {
             for (let wall in walls) {
                 if (typeof walls[wall] === 'object') {
-                    walls[wall].removeEventListener('mouseover', fun);
+                    walls[wall].removeEventListener('mouseover', lose);
                 }
             }
 
@@ -273,16 +273,29 @@ function prepareGame() {
 
 }
 
-//1 - 100
-let level = 0;
-
-let closeBtn = document.getElementsByClassName('close')[0];
-closeBtn.onclick = function() {
-    modal.style.display = "none";
+function closeModal() {
+    let closeBtn = document.getElementsByClassName('close')[0];
+    closeBtn.style.display = 'none';
+    // let modal = document.getElementById('modal');
+    modal.style.display = 'none'; //???
     let audio = document.getElementById('audio');
     audio.load();
 }
 
+function settingModal() {
+
+    let closeBtn = document.getElementsByClassName('close')[0];
+    closeBtn.addEventListener('click', closeModal);
+    let audio = document.getElementById('audio');
+    audio.addEventListener('ended', (event) => {
+        closeBtn.style.display = 'block';
+    })
+}
+
+//1 - 100
+let level = 0;
+
+settingModal();
 prepareGame();
 let isGameStart = false;
 
