@@ -8,7 +8,7 @@ function lose() {
     gameStartClick();
 }
 
-function generateMap(map, iHead, jHead) {
+function generatePath(map, iHead, jHead) {
     
     let checkSideResult = checkSide(map, iHead, jHead);
 
@@ -140,7 +140,7 @@ function checkSide(map, i,j) {
     }
 }
 
-function generateWallsPaths(dimension) {
+function generateMap(dimension) {
 
     let result = [];
     
@@ -210,12 +210,12 @@ function prepareGame() {
     let blockCount = Math.ceil(level/10) * 10;
     let blockSize = 80 - ((level) * 5);
 
-    let map = generateWallsPaths(blockCount);
+    let map = generateMap(blockCount);
     let areaSize = blockCount * blockSize;
     let head = [1 , 1];
     // console.log(checkSide(map,1,2));
     // console.log(roulette(map,1,2));
-    generateMap(map,head[0],head[1]);
+    generatePath(map,head[0],head[1]);
 
     //set area width & height
     let areaElement = document.getElementById('area');
