@@ -1,0 +1,32 @@
+body {
+    width: 100%;
+    min-height: 100%;
+    background-color: #F2C18D;
+    cursor: url('https://i.pinimg.com/736x/84/00/d7/8400d7c4b26af4e80b4c159db5937531.jpg'), auto;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#area {
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    border-radius: 20px;
+    background-color : #99BC85;
+}
+
+#maze-design {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    background-color : #99BC85;
+}
+
+
